@@ -10,10 +10,10 @@ import { questionGenerator } from '../../helper/questions-helper';
 import './quiz.css';
 
 //interfaces
-import { ISelectedOption, IData } from '../../interfaces/interfaces';
+import { ISelectedOption, IData, IQuizComponent } from '../../interfaces/interfaces';
 import Loading from '../loading/Loading';
 
-const QuizComponent = () => {
+const QuizComponent: React.FC<IQuizComponent> = ({ info, setCounter, counter }) => {
   const [data, setData] = useState<IData>({
     capital: '',
     options: [],
@@ -44,7 +44,10 @@ const QuizComponent = () => {
   const handleNextQuestion = () => {
     handleGetCountries();
     setSelectedOption({ country: '', code: '' });
+    setCounter((counter) => counter + 1);
   };
+
+  const { numberOfQuestions } = info;
 
   return (
     <div className="page__body">
@@ -70,13 +73,18 @@ const QuizComponent = () => {
               );
             })}
 
-            {selectedOption.code && (
-              <div className="page__body__answer__next__container" onClick={() => handleNextQuestion()}>
-                <div className="page__body__answer__next">
-                  <p className="page__body__answer__next__text">Next</p>
+            <div className="page__body__answer__bottom__container">
+              <p className="page__body__answer__bottom__counter">
+                {counter}/{numberOfQuestions}
+              </p>
+              {selectedOption.code && (
+                <div className="page__body__answer__next__container" onClick={() => handleNextQuestion()}>
+                  <div className="page__body__answer__next">
+                    <p className="page__body__answer__next__text">Next</p>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </>
       )}

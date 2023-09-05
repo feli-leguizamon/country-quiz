@@ -17,3 +17,8 @@ export interface ISelectedOption {
   country: string;
   code: string;
 }
+export interface IQuizComponent {
+  info: IInfo;
+  setCounter: (updateFunction: (counter: number) => number) => void;
+  counter: number;
+}

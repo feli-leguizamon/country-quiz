@@ -14,7 +14,10 @@ import WelcomeComponent from './components/welcome/WelcomeComponent';
 import { IInfo } from './interfaces/interfaces';
 
 function App() {
+  const [counter, setCounter] = useState<number>(0);
   const [info, setInfo] = useState<IInfo>({ numberOfQuestions: 4, begin: false });
+
+  const { numberOfQuestions, begin } = info;
 
   return (
     <div className="page">
@@ -25,9 +28,9 @@ function App() {
         </div>
       </div>
 
-      {info.begin && <QuizComponent />}
+      {begin && counter !== numberOfQuestions && <QuizComponent info={info} setCounter={setCounter} counter={counter} />}
 
-      {!info.begin && <WelcomeComponent setInfo={setInfo} />}
+      {!begin && <WelcomeComponent setInfo={setInfo} />}
 
       <p className="page__footer__text">
         created by <span className="page__footer__username">Leguizamón Felicitas</span> - devChallenges.io
