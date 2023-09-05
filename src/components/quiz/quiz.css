@@ -1,0 +1,117 @@
+.page__body{
+    padding: 68px 32px 32px 32px;
+    width: auto;
+    height: 450px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    background: var(--color-2);
+    margin-top: -33px;
+    @media (max-width: 768px) {
+        /* agrego width y height para que el cuadrado blanco sea responsive */
+    }
+}
+
+.page__body__question{
+    color: var(--color-3);
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+
+.page__body__answer__container{
+    margin-top: 32px;
+}
+
+.page__body__answer__div{
+    display: flex;
+    width: 400px;
+    height: auto;
+    min-height: 56px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 2px solid var(--color-4);
+    background: var(--color-2);
+    margin-top: 25px;
+    &:hover{
+        background: var(--color-5);
+        border: 2px solid transparent;
+        cursor: url('../../assets/cursor.svg'), auto;
+    }
+}
+
+.wrong__answer{
+    background-color: var(--color-7);
+    border: 2px solid transparent;
+    &:hover{
+        background-color: var(--color-7);
+        border: 2px solid transparent;
+        cursor: url('../../assets/cursor.svg'), auto;
+    }
+
+}
+
+.right__answer{
+    background-color: var(--color-8);
+    border: 2px solid transparent;
+    &:hover{
+        background-color: var(--color-8);
+        border: 2px solid transparent;
+        cursor: url('../../assets/cursor.svg'), auto;
+    }
+
+}
+
+.page__body__answer__div:hover > p {
+    color: var(--color-2);
+}
+
+.page__body__answer__div .selected__text__color{
+    color: var(--color-2);
+}
+  
+
+.page__body__answer__text{
+    color: var(--color-4);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.letter{
+    margin-left: 19px;
+    margin-right: 46px;
+}
+
+.page__body__answer__next__container{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 24px;
+    cursor: url('../../assets/cursor.svg'), auto;
+}
+
+.page__body__answer__next{
+    border-radius: 12px;
+    background: var(--color-5);
+    box-shadow: 0px 2px 4px 0px var(--color-6);
+    width: 116px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page__body__answer__next__text{
+    color: var(--color-2);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    
+}
