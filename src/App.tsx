@@ -25,7 +25,7 @@ function App() {
         </div>
       </div>
 
-      {info.begin && <QuizComponent/>}
+      {info.begin && <QuizComponent />}
 
       {!info.begin && <WelcomeComponent setInfo={setInfo} />}
 

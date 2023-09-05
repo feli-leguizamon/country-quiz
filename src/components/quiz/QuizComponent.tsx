@@ -11,6 +11,7 @@ import './quiz.css';
 
 //interfaces
 import { ISelectedOption, IData } from '../../interfaces/interfaces';
+import Loading from '../loading/Loading';
 
 const QuizComponent = () => {
   const [data, setData] = useState<IData>({
@@ -19,7 +20,7 @@ const QuizComponent = () => {
     correctAnswerCode: '',
   });
 
-  const { countries, handleGetCountries } = useGetCountries();
+  const { countries, handleGetCountries, loading } = useGetCountries();
   const [selectedOption, setSelectedOption] = useState<ISelectedOption>({
     country: '',
     code: '',
@@ -47,32 +48,38 @@ const QuizComponent = () => {
 
   return (
     <div className="page__body">
-      <p className="page__body__question">{capital} is the capital of</p>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <p className="page__body__question">{capital} is the capital of</p>
 
-      <div className="page__body__answer__container">
-        {options.map((country: string, index: number) => {
-          const correctAnswer = (selectedOption.code === correctAnswerCode && correctAnswerCode === letters[index]) || letters[index] === correctAnswerCode;
-          const incorrectAnswer = selectedOption.code !== correctAnswerCode && selectedOption.code === letters[index];
-          return (
-            <div
-              className={`page__body__answer__div ${selectedOption.code ? (correctAnswer ? 'right__answer' : incorrectAnswer ? 'wrong__answer' : '') : ''}`}
-              onClick={() => !selectedOption.code && handleSelectAnswer(country, letters[index])}
-            >
-              <p className={`page__body__answer__text letter ${selectedOption.code && (correctAnswer || incorrectAnswer) ? 'selected__text__color' : ''}`}>{letters[index]}</p>
+          <div className="page__body__answer__container">
+            {options.map((country: string, index: number) => {
+              const correctAnswer = (selectedOption.code === correctAnswerCode && correctAnswerCode === letters[index]) || letters[index] === correctAnswerCode;
+              const incorrectAnswer = selectedOption.code !== correctAnswerCode && selectedOption.code === letters[index];
+              return (
+                <div
+                  className={`page__body__answer__div ${selectedOption.code ? (correctAnswer ? 'right__answer' : incorrectAnswer ? 'wrong__answer' : '') : ''}`}
+                  onClick={() => !selectedOption.code && handleSelectAnswer(country, letters[index])}
+                >
+                  <p className={`page__body__answer__text letter ${selectedOption.code && (correctAnswer || incorrectAnswer) ? 'selected__text__color' : ''}`}>{letters[index]}</p>
 
-              <p className={`page__body__answer__text ${selectedOption.code && (correctAnswer || incorrectAnswer) ? 'selected__text__color' : ''}`}>{country}</p>
-            </div>
-          );
-        })}
-        {/* unicamente cuando hay una opción seleccionada aparece el botón NEXT */}
-        {selectedOption.code && (
-          <div className="page__body__answer__next__container" onClick={() => handleNextQuestion()}>
-            <div className="page__body__answer__next">
-              <p className="page__body__answer__next__text">Next</p>
-            </div>
+                  <p className={`page__body__answer__text ${selectedOption.code && (correctAnswer || incorrectAnswer) ? 'selected__text__color' : ''}`}>{country}</p>
+                </div>
+              );
+            })}
+
+            {selectedOption.code && (
+              <div className="page__body__answer__next__container" onClick={() => handleNextQuestion()}>
+                <div className="page__body__answer__next">
+                  <p className="page__body__answer__next__text">Next</p>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </>
+      )}
     </div>
   );
 };

@@ -9,6 +9,8 @@
   --color-8: #60BF88;
   --color-9:#1D355D;
   --color-10: #ccc;
+  --color-11: rgba(255, 255, 255, 0.3);
+
 }
 
 body {
