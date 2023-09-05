@@ -7,18 +7,10 @@ import { useGetCountries } from '../../hooks/useGetCountries';
 import { questionGenerator } from '../../helper/questions-helper';
 
 //css
-import  "./quiz.css"
+import './quiz.css';
 
-interface IData {
-  capital: string;
-  options: string[];
-  correctAnswerCode: string;
-}
-
-interface ISelectedOption {
-  country: string;
-  code: string;
-}
+//interfaces
+import { ISelectedOption, IData } from '../../interfaces/interfaces';
 
 const QuizComponent = () => {
   const [data, setData] = useState<IData>({

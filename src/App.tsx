@@ -10,13 +10,11 @@ import undraw_adventure from './assets/undraw-adventure.svg';
 import QuizComponent from './components/quiz/QuizComponent';
 import WelcomeComponent from './components/welcome/WelcomeComponent';
 
-interface IBegin {
-  numberOfQuestions: number | null;
-  begin: boolean;
-}
+//interfaces
+import { IInfo } from './interfaces/interfaces';
 
 function App() {
-  const [info, setInfo] = useState<IBegin>({ numberOfQuestions: null, begin: false });
+  const [info, setInfo] = useState<IInfo>({ numberOfQuestions: 4, begin: false });
 
   return (
     <div className="page">
@@ -27,9 +25,9 @@ function App() {
         </div>
       </div>
 
-      {/* <QuizComponent /> */}
+      {info.begin && <QuizComponent/>}
 
-      {!info.begin && <WelcomeComponent />}
+      {!info.begin && <WelcomeComponent setInfo={setInfo} />}
 
       <p className="page__footer__text">
         created by <span className="page__footer__username">Leguizamón Felicitas</span> - devChallenges.io

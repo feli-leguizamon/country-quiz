@@ -1,0 +1,68 @@
+.welcome__container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome__world__map__image{
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.welcome__text{
+    text-align: center;
+    color: var(--color-9);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.welcome__select__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 170px;
+}
+
+select {
+    padding: 5px;
+    border: 1px solid var(--color-10);
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+select:focus {
+outline: none;
+border-color: none;
+}
+
+.start__button {
+    color: var(--color-9);
+    border: none; /* Sin borde */
+    padding: 10px 0;
+    width: 170px;
+    font-size: 24px; 
+    border-radius: 12px;
+    cursor: url("../../assets/cursor.svg"), auto; 
+    margin-top: 24px;
+    letter-spacing: 2px;
+}
+
+.start__button:hover {
+    background-color: var(--color-3);
+    color: var(--color-2);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.no-margin{
+    margin: 0;
+}
