@@ -35,7 +35,7 @@ function App() {
           </div>
         </div>
 
-        {begin && counter - 1  !== numberOfQuestions && <QuizComponent info={info} setCounter={setCounter} counter={counter} setCorrectAnswersCounter={setCorrectAnswersCounter} />}
+        {begin && counter - 1 !== numberOfQuestions && <QuizComponent info={info} setCounter={setCounter} counter={counter} setCorrectAnswersCounter={setCorrectAnswersCounter} />}
 
         {!begin && <WelcomeComponent setInfo={setInfo} />}
 
