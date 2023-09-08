@@ -16,7 +16,7 @@ const Results: React.FC<IResults> = ({ correctAnswersCounter, info, setInfo, set
   const handleTryAgain = () => {
     setInfo({ begin: false, numberOfQuestions: 4 });
     setCorrectAnswersCounter(() => 0);
-    setCounter(() => 0);
+    setCounter(() => 1);
   };
   return (
     <div className="page__body">

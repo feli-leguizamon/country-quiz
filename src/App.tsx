@@ -15,7 +15,7 @@ import WelcomeComponent from './components/welcome/WelcomeComponent';
 import { IInfo } from './interfaces/interfaces';
 
 function App() {
-  const [counter, setCounter] = useState<number>(0);
+  const [counter, setCounter] = useState<number>(1);
   const [correctAnswersCounter, setCorrectAnswersCounter] = useState<number>(0);
   const [info, setInfo] = useState<IInfo>({ numberOfQuestions: 4, begin: false });
 
@@ -35,11 +35,11 @@ function App() {
           </div>
         </div>
 
-        {begin && counter !== numberOfQuestions && <QuizComponent info={info} setCounter={setCounter} counter={counter} setCorrectAnswersCounter={setCorrectAnswersCounter} />}
+        {begin && counter - 1  !== numberOfQuestions && <QuizComponent info={info} setCounter={setCounter} counter={counter} setCorrectAnswersCounter={setCorrectAnswersCounter} />}
 
         {!begin && <WelcomeComponent setInfo={setInfo} />}
 
-        {counter === numberOfQuestions && (
+        {counter - 1 === numberOfQuestions && (
           <Results setCounter={setCounter} correctAnswersCounter={correctAnswersCounter} info={info} setInfo={setInfo} setCorrectAnswersCounter={setCorrectAnswersCounter} />
         )}
 

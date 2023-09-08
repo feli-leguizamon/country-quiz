@@ -13,6 +13,7 @@
     border-radius: 12px;
     cursor: url("../../assets/cursor.svg"), auto; 
     letter-spacing: 2px;
+    margin-top: 36px;
 }
 
 .try__again__button:hover {
@@ -39,7 +40,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin: 24px 0 0 0;
+    margin: 24px 0 auto 0;
 }
 
 .results__text span {
