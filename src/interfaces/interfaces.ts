@@ -20,5 +20,14 @@ export interface ISelectedOption {
 export interface IQuizComponent {
   info: IInfo;
   setCounter: (updateFunction: (counter: number) => number) => void;
+  setCorrectAnswersCounter: (updateFunction: (counter: number) => number) => void;
   counter: number;
+}
+
+export interface IResults {
+  correctAnswersCounter: number;
+  info: IInfo;
+  setInfo: React.Dispatch<React.SetStateAction<IInfo>>;
+  setCorrectAnswersCounter: (updateFunction: (counter: number) => number) => void;
+  setCounter: (updateFunction: (counter: number) => number) => void;
 }

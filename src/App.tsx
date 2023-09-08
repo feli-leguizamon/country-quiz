@@ -16,9 +16,14 @@ import { IInfo } from './interfaces/interfaces';
 
 function App() {
   const [counter, setCounter] = useState<number>(0);
+  const [correctAnswersCounter, setCorrectAnswersCounter] = useState<number>(0);
   const [info, setInfo] = useState<IInfo>({ numberOfQuestions: 4, begin: false });
 
   const { numberOfQuestions, begin } = info;
+
+  const handleRedirect = () => {
+    window.open('https://www.linkedin.com/in/feli-leguizamon/', '_blank');
+  };
 
   return (
     <div className="page">
@@ -30,14 +35,20 @@ function App() {
           </div>
         </div>
 
-        {begin && counter !== numberOfQuestions && <QuizComponent info={info} setCounter={setCounter} counter={counter} />}
+        {begin && counter !== numberOfQuestions && <QuizComponent info={info} setCounter={setCounter} counter={counter} setCorrectAnswersCounter={setCorrectAnswersCounter} />}
 
         {!begin && <WelcomeComponent setInfo={setInfo} />}
 
-        {counter === numberOfQuestions && <Results />}
+        {counter === numberOfQuestions && (
+          <Results setCounter={setCounter} correctAnswersCounter={correctAnswersCounter} info={info} setInfo={setInfo} setCorrectAnswersCounter={setCorrectAnswersCounter} />
+        )}
 
         <p className="page__footer__text">
-          created by <span className="page__footer__username">Leguizamón Felicitas</span> - devChallenges.io
+          created by{' '}
+          <span className="page__footer__username" onClick={handleRedirect}>
+            Leguizamón Felicitas
+          </span>
+          - devChallenges.io
         </p>
       </div>
     </div>

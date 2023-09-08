@@ -21,6 +21,9 @@
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
+    @media (max-width: 500px) {
+        font-size: 34px;
+    }
 }
 
 .page__header__icon{
@@ -28,6 +31,9 @@
     height: 116px;
     flex-shrink: 0;
     z-index: 1;
+    @media (max-width: 500px) {
+        width: 132px;
+    }
 }
 
 
@@ -44,5 +50,6 @@
 .page__footer__username{
     font-weight: 700;
     text-decoration-line: underline;
+    cursor: url("../src/assets/cursor.svg"), auto;
 }
 

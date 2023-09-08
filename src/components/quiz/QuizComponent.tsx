@@ -13,7 +13,7 @@ import './quiz.css';
 import { ISelectedOption, IData, IQuizComponent } from '../../interfaces/interfaces';
 import Loading from '../loading/Loading';
 
-const QuizComponent: React.FC<IQuizComponent> = ({ info, setCounter, counter }) => {
+const QuizComponent: React.FC<IQuizComponent> = ({ info, setCounter, counter, setCorrectAnswersCounter }) => {
   const [data, setData] = useState<IData>({
     capital: '',
     options: [],
@@ -39,6 +39,7 @@ const QuizComponent: React.FC<IQuizComponent> = ({ info, setCounter, counter }) 
 
   const handleSelectAnswer = (country: string, letter: string) => {
     setSelectedOption({ country, code: letter });
+    if (letter === correctAnswerCode) setCorrectAnswersCounter((counter) => counter + 1);
   };
 
   const handleNextQuestion = () => {
